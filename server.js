@@ -1,14 +1,14 @@
-require("dotenv").config();
+require("dotenv").config();                                                     // importe le fichier dotenv
 
-const express       = require('express');       // pour créer l'api
-const morgan        = require("morgan");        // pour plus de détails dans les logs d'erreurs
-const cors          = require('cors');          // pour la sécurité et eviter des pb avec react 
-const helmet        = require('helmet');        // pour la sécurité et eviter des pb avec react
+const express       = require('express');                                       // pour créer l'api
+const morgan        = require("morgan");                                        // pour plus de détails dans les logs d'erreurs
+const cors          = require('cors');                                          // pour la sécurité et eviter des pb avec react 
+const helmet        = require('helmet');                                        // pour la sécurité et eviter des pb avec react
 
-const errorHandler = require("./middlewares/errorHandler")
-const notFound = require("./middlewares/notFound")
+const errorHandler = require("./middlewares/errorHandler")                      // importe le middleware pour gerer les erreurs
+const notFound = require("./middlewares/notFound")                              // importe le middeware pour gerer les erreurs 404
 
-const routeTws = require("./rootes/tw");
+const routeTws = require("./rootes/tw");                                        // importe les routes qu'on as créer 
 
 
 const server = express();

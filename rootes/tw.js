@@ -19,9 +19,24 @@ let tws = [{
     RT : 64
 }]
 
+let citation = [{
+    msg : "Je serai le roi des pirates",
+    author : "Monkey D Luffy"
+},{
+    msg : "Je serai le meilleur bretteur du monde",
+    author : "Rorona Zoro"
+},{
+    msg : "Je serai un grand guerrier des mers",
+    author : "Usopp"
+}]
+
 // GET : /api/tws
 Router.get("/api/tws", (req,res) =>{
     res.status(200).send(tws);
+})
+
+Router.get("/api/anime", (req,res) =>{
+    res.status(200).send(citation);
 })
 
 module.exports = Router;
