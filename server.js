@@ -5,8 +5,11 @@ const morgan        = require("morgan");                                        
 const cors          = require('cors');                                          // pour la sécurité et eviter des pb avec react 
 const helmet        = require('helmet');                                        // pour la sécurité et eviter des pb avec react
 
+const connectDB = require("./middlewares/db")
 const errorHandler = require("./middlewares/errorHandler")                      // importe le middleware pour gerer les erreurs
 const notFound = require("./middlewares/notFound")                              // importe le middeware pour gerer les erreurs 404
+
+connectDB();
 
 const routeTws = require("./rootes/tw");                                        // importe les routes qu'on as créer 
 
