@@ -20,17 +20,6 @@ const Router = express.Router();
 //     RT : 64
 // }]
 
-let citation = [{
-    msg : "Je serai le roi des pirates",
-    author : "Monkey D Luffy"
-},{
-    msg : "Je serai le meilleur bretteur du monde",
-    author : "Rorona Zoro"
-},{
-    msg : "Je serai un grand guerrier des mers",
-    author : "Usopp"
-}]
-
 // GET : /api/tws
 Router.get("/api/tws", (req,res, next) =>{
     twModel.find()
@@ -43,6 +32,7 @@ Router.get("/api/tws/:twId", (req,res,next) =>{
     const id = req.params.twId
 
     twModel.findOne({_id: id})
+    .populate("user")
     .then(tw => {
         if(tw === null)
             res.status(200).send("il n'y a pas de tweet, il a été supprimé")
@@ -50,9 +40,6 @@ Router.get("/api/tws/:twId", (req,res,next) =>{
     })
     .catch(error => next(error));
 })
-
-Router.get("/api/anime", (req,res) => res.status(200).send(citation));
-
 // POST : /api/tws
 Router.post("/api/tws", (req, res, next) =>{
     console.log(req)

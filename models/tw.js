@@ -7,6 +7,10 @@ const twSchema = new mongoose.Schema({
         trim: true,
         maxLength: 150,
         minLength:0
+    },
+    users :{
+        type: mongoose.Types.ObjectId,
+        ref: "users"
     }
 },{
     timestamps:true,
